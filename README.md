@@ -1,162 +1,262 @@
 # Claude Code System Prompts
 
-A research project exploring how modern agentic AI coding assistants work under the hood. This repository contains our best understanding of the prompt architecture, agent coordination patterns, and security mechanisms that power tools like Claude Code.
+最新のエージェント型AIコーディングアシスタントが、その「中身」でどのように動作しているかを探究する研究プロジェクトです。
 
-Everything here is based on behavioral observation, output analysis, community discussions, and publicly shared information. These are reconstructed approximations, not verbatim copies. The actual implementation may differ significantly.
+このリポジトリには、Claude Codeなどのツールを支えるプロンプト・アーキテクチャ、エージェント間の協調パターン、そしてセキュリティ・メカニズムに関する、現時点での私たちの知見をまとめています。
 
-## What This Project Is
+ここにある内容はすべて、動作の観察、出力の分析、コミュニティでの議論、および公開情報に基づいています。これらは再現された近似モデルであり、元の実装をそのまま複製したものではありません。実際の仕様は大きく異なる可能性があります。
 
-This is an educational deep-dive into the design patterns behind agentic coding assistants. We analyze how these systems:
+＃＃プロジェクトの概要
+このプロジェクトは、エージェント型コーディングアシスタントの背後にあるデザインパターンを深く掘り下げる、教育目的の研究です。私たちは、これらのシステムがどのように以下の処理を行っているかを分析しています。
 
-- Assemble dynamic system prompts at runtime
-- Coordinate multiple specialized sub-agents
-- Classify and auto-approve tool calls safely
-- Manage context windows through intelligent compaction
-- Handle memory, skills, and user preferences
+実行時（ランタイム）における動的なシステムプロンプトの構築
 
-The goal is to help AI engineers, researchers, and builders learn from these architectural patterns and apply them in their own projects.
+専門化された複数のサブエージェント間の連携
 
-## What This Project Is Not
+ツール呼び出しの分類と、安全な自動承認プロセスの実行
 
-This is **not** a leak, dump, or direct copy of any proprietary system. The prompts documented here are our best reconstructions based on observable behavior. They represent one interpretation of how these systems likely work.
+インテリジェントな圧縮によるコンテキストウィンドウの管理
+
+メモリ、スキル、およびユーザー設定の保持と管理
+
+このプロジェクトの目的は、AIエンジニアや研究者、開発者がこれらのアーキテクチャ・パターンから学び、自身のプロジェクトに応用できるよう支援することにあります。
+
+＃＃プロジェクトの対象外（非目的）
+本プロジェクトは、いかなる独自システムのリーク、ダンプ、あるいは直接的なコピーでもありません。ここに記録されたプロンプトは、観測可能な動作に基づいた、現時点での私たちの知見による再構成です。これらは、これらのシステムがどのように動作しているかという一つの解釈を示すものです。
 
 ## Documented Patterns
 
-### Core Identity
+### Core Identity ・コア・アイデンティティ
 
 | # | Pattern | Description |
 |---|---------|-------------|
-| 01 | [Main System Prompt](prompts/01_main_system_prompt.md) | How the master prompt is dynamically assembled from modular sections |
-| 02 | [Simple Mode](prompts/02_simple_mode.md) | Minimal prompt variant for lightweight operation |
-| 03 | [Default Agent Prompt](prompts/03_default_agent_prompt.md) | Base instructions inherited by all sub-agents |
-| 04 | [Cyber Risk Instruction](prompts/04_cyber_risk_instruction.md) | Security boundaries between authorized and prohibited actions |
+| 01 | [Main System Prompt](prompts/01_main_system_prompt.md) | 
+＜メイン・システムプロンプト＞ 
+メイン・システムプロンプトモジュール化された各セクションから、マスタープロンプトを動的に構築する方法 |
 
-### Orchestration
+| 02 | [Simple Mode](prompts/02_simple_mode.md) | 
+＜シンプル・モード＞ 
+シンプル・モード軽量な動作のための最小限のプロンプト・バリアント |
 
-| # | Pattern | Description |
-|---|---------|-------------|
-| 05 | [Coordinator System Prompt](prompts/05_coordinator_system_prompt.md) | Multi-worker orchestration with phased workflows |
-| 06 | [Teammate Prompt Addendum](prompts/06_teammate_prompt_addendum.md) | Communication protocols for multi-agent collaboration |
+| 03 | [Default Agent Prompt](prompts/03_default_agent_prompt.md) | 
+＜デフォルト・エージェント・プロンプト＞ 
+デフォルト・エージェント・プロンプトすべてのサブエージェントが継承するベースとなる指示 |
 
-### Specialized Agents
+| 04 | [Cyber Risk Instruction](prompts/04_cyber_risk_instruction.md) | 
+＜サイバーリスク・インストラクション＞ 
+サイバーリスク・インストラクション許可された操作と禁止された操作を分けるセキュリティ境界 |
 
-| # | Pattern | Description |
-|---|---------|-------------|
-| 07 | [Verification Agent](prompts/07_verification_agent.md) | Adversarial testing agent that validates implementations |
-| 08 | [Explore Agent](prompts/08_explore_agent.md) | Read-only codebase exploration with no-modify constraints |
-| 09 | [Agent Creation Architect](prompts/09_agent_creation_architect.md) | Generates new agent configurations from requirements |
-| 10 | [Status Line Setup Agent](prompts/10_statusline_setup_agent.md) | Terminal status line configuration across shells |
-
-### Security and Permissions
+### Orchestration ・オーケストレーション（調整・連携）
 
 | # | Pattern | Description |
 |---|---------|-------------|
-| 11 | [Permission Explainer](prompts/11_permission_explainer.md) | Risk assessment before tool approval |
-| 12 | [Auto Mode Classifier](prompts/12_yolo_auto_mode_classifier.md) | Multi-stage security classifier for autonomous tool execution |
+| 05 | [Coordinator System Prompt](prompts/05_coordinator_system_prompt.md) |
+＜コーディネーター・システムプロンプト＞ 
+フェーズ分けされたワークフローによるマルチワーカーのオーケストレーション |
 
-### Tool Descriptions
+| 06 | [Teammate Prompt Addendum](prompts/06_teammate_prompt_addendum.md) | 
+＜チームメイト・プロンプト補足資料＞
+マルチエージェントによる共同作業のための通信プロトコル |
 
-| # | Pattern | Description |
-|---|---------|-------------|
-| 13 | [Tool-Specific Prompts](prompts/13_tool_prompts.md) | How individual tools (Bash, Edit, Agent, etc.) describe themselves |
-
-### Utility Patterns
-
-| # | Pattern | Description |
-|---|---------|-------------|
-| 14 | [Tool Use Summary](prompts/14_tool_use_summary.md) | Generating concise labels for completed tool batches |
-| 15 | [Session Search](prompts/15_session_search.md) | Semantic search across past conversation sessions |
-| 16 | [Memory Selection](prompts/16_memory_selection.md) | Selecting relevant memory files for query context |
-| 17 | [Auto Mode Critique](prompts/17_auto_mode_critique.md) | Reviewing user-written classifier rules |
-| 20 | [Session Title](prompts/20_session_title.md) | Lightweight title generation for session management |
-| 29 | [Agent Summary](prompts/29_agent_summary.md) | Background progress updates for sub-agents |
-| 30 | [Prompt Suggestion](prompts/30_prompt_suggestion.md) | Predicting likely user follow-up commands |
-
-### Context Window Management
+### Specialized Agents ・特化型エージェント
 
 | # | Pattern | Description |
 |---|---------|-------------|
-| 21 | [Compact Service](prompts/21_compact_service.md) | Conversation summarization strategies for long sessions |
-| 22 | [Away Summary](prompts/22_away_summary.md) | Brief session recaps for returning users |
+| 07 | [Verification Agent](prompts/07_verification_agent.md) |
+＜検証エージェント＞ 
+実装を検証するアドバーサリアル（敵対的）テスト・エージェント |
 
-### Dynamic Behaviors
+| 08 | [Explore Agent](prompts/08_explore_agent.md) | 
+＜探索エージェント＞
+「変更不可」の制約下で行う、読み取り専用のコードベース探索 |
+
+| 09 | [Agent Creation Architect](prompts/09_agent_creation_architect.md) |
+＜エージェント生成アーキテクト＞ 
+要件から新しいエージェント構成を生成 |
+
+| 10 | [Status Line Setup Agent](prompts/10_statusline_setup_agent.md) | 
+＜ステータスライン設定エージェント＞
+各種シェルにおけるターミナルのステータスライン設定 |
+
+
+
+
+
+
+### Security and Permissions ・セキュリティと権限
 
 | # | Pattern | Description |
 |---|---------|-------------|
-| 18 | [Proactive Mode](prompts/18_proactive_mode.md) | Autonomous background operation with pacing controls |
-| 23 | [Chrome Browser Automation](prompts/23_chrome_browser_automation.md) | Browser extension integration patterns |
-| 24 | [Memory Instruction](prompts/24_memory_instruction.md) | Hierarchical memory loading and override semantics |
+| 11 | [Permission Explainer](prompts/11_permission_explainer.md) | 
+＜権限エクスプレイナー＞	
+ツール実行の承認前に行われるリスク評価 |
 
-### Skill Patterns
+| 12 | [Auto Mode Classifier](prompts/12_yolo_auto_mode_classifier.md) | 
+＜オートモード・クラシファイア＞	
+ツールの自律実行に向けた多段階セキュリティ分類 |
+
+### Tool Descriptions ・ツール解説
 
 | # | Pattern | Description |
 |---|---------|-------------|
-| 19 | [Simplify Skill](prompts/19_simplify_skill.md) | Multi-agent parallel code review pattern |
-| 25 | [Skillify Skill](prompts/25_skillify.md) | Interview-based skill creation workflow |
-| 26 | [Stuck Skill](prompts/26_stuck_skill.md) | Session diagnostic and recovery patterns |
-| 27 | [Remember Skill](prompts/27_remember_skill.md) | Memory organization and promotion workflow |
-| 28 | [Update Config Skill](prompts/28_update_config_skill.md) | Configuration management patterns |
+| 13 | [Tool-Specific Prompts](prompts/13_tool_prompts.md) | 
+＜ツール別プロンプト＞	
+個々のツール（Bash、Edit、Agentなど）が自身の機能を定義する方法 |
 
-## Architectural Observations
+### Utility Patterns ・ユーティリティ・パターン
 
-### Dynamic Prompt Assembly
+| # | Pattern | Description |
+|---|---------|-------------|
+| 14 | [Tool Use Summary](prompts/14_tool_use_summary.md) | 
+＜ツール使用サマリー＞	
+完了した一連のツール実行に対する簡潔なラベルの生成 |
 
-Based on our analysis, the system prompt appears to be assembled through a pipeline of modular builders:
+| 15 | [Session Search](prompts/15_session_search.md) | 
+＜セッション検索＞	
+過去の対話セッションを対象としたセマンティック検索 |
+
+| 16 | [Memory Selection](prompts/16_memory_selection.md) | 
+＜メモリ選択＞	
+クエリのコンテキストに適したメモリファイルの選択 |
+
+| 17 | [Auto Mode Critique](prompts/17_auto_mode_critique.md) | 
+＜オートモード・クリティーク＞	
+ユーザーが作成した分類ルールのレビュー |
+
+| 20 | [Session Title](prompts/20_session_title.md) | 
+＜セッション・タイトル＞	
+セッション管理用の軽量なタイトル生成 |
+
+| 29 | [Agent Summary](prompts/29_agent_summary.md) | 
+＜エージェント・サマリー＞	
+サブエージェントのバックグラウンドでの進捗更新 |
+
+| 30 | [Prompt Suggestion](prompts/30_prompt_suggestion.md) | 
+＜プロンプト・サジェスチョン＞	
+ユーザーが次に入力する可能性の高いコマンドの予測 |
+
+### Context Window Management ・コンテキストウィンドウ管理
+
+| # | Pattern | Description |
+|---|---------|-------------|
+| 21 | [Compact Service](prompts/21_compact_service.md) | 
+＜コンパクト・サービス＞
+長いセッションにおける会話の要約ストラテジー |
+
+| 22 | [Away Summary](prompts/22_away_summary.md) | 
+＜アウェイ・サマリー＞
+再開したユーザーのための短いセッション回顧 |
+
+### Dynamic Behaviors ・動的ビヘイビア
+
+| # | Pattern | Description |
+|---|---------|-------------|
+| 18 | [Proactive Mode](prompts/18_proactive_mode.md) | 
+＜プロアクティブ・モード＞
+ペース制御を備えた自律的なバックグラウンド動作 |
+
+| 23 | [Chrome Browser Automation](prompts/23_chrome_browser_automation.md) | 
+＜Chromeブラウザ自動化＞
+ブラウザ拡張機能の統合パターン |
+
+| 24 | [Memory Instruction](prompts/24_memory_instruction.md) | 
+＜メモリ・インストラクション＞
+階層的なメモリ読み込みとオーバーライドのセマンティクス |
+
+### Skill Patterns ・スキル・パターン
+
+| # | Pattern | Description |
+|---|---------|-------------|
+| 19 | [Simplify Skill](prompts/19_simplify_skill.md) | 
+＜シンプリファイ・スキル＞
+マルチエージェントによる並列コードレビュー・パターン |
+
+| 25 | [Skillify Skill](prompts/25_skillify.md) | 
+＜スキリファイ・スキル＞
+インタビュー形式によるスキル作成ワークフロー |
+
+| 26 | [Stuck Skill](prompts/26_stuck_skill.md) | 
+＜スタック・スキル＞
+セッションの診断とリカバリ（復旧）パターン |
+
+| 27 | [Remember Skill](prompts/27_remember_skill.md) | 
+＜リメンバー・スキル＞
+メモリの整理とプロモーション（昇格）ワークフロー |
+
+| 28 | [Update Config Skill](prompts/28_update_config_skill.md) | 
+＜設定更新スキル＞
+コンフィギュレーション管理のパターン |
+
+＃＃アーキテクチャに関する考察
+
+＃＃動的なプロンプトの構築
+私たちの分析によると、システムプロンプトはモジュール化されたビルダーのパイプラインを通じて構築されているようです。
 
 ```
-Prompt Assembly Pipeline
+プロンプト構築パイプライン
     |
-    |   Cacheable Prefix (stable across sessions)
-    |-- Identity and safety instructions
-    |-- Permission and hook configuration
-    |-- Code style and error handling rules
-    |-- Tool preferences and usage patterns
-    |-- Tone, style, and output rules
+    |   キャッシュ可能なプレフィックス（セッションをまたいで不変）
+    |-- アイデンティティおよびセーフティに関する指示
+    |-- 権限およびフックの設定
+    |-- コードスタイルおよびエラーハンドリングのルール
+    |-- ツールの好みおよび使用パターン
+    |-- トーン、スタイル、および出力ルール
     |
-    |   Cache Boundary
+    |   キャッシュ境界
     |
-    |   Dynamic Suffix (changes per session)
-    |-- Available agents and skills
-    |-- Memory file contents
-    |-- Environment context (OS, directory, git state)
-    |-- Language and output preferences
-    |-- Active MCP server instructions
-    |-- Context window management directives
+    |   動的なサフィックス（セッションごとに変化）
+    |-- 利用可能なエージェントおよびスキル
+    |-- メモリファイルの内容
+    |-- 環境コンテキスト（OS、ディレクトリ、Gitの状態）
+    |-- 言語および出力の好み
+    |-- 有効なMCPサーバーの指示
+    |-- コンテキストウィンドウ管理のディレクティブ
 ```
 
-### Security Classification
+＃＃＃セキュリティ分類
+自動承認システムは、多段階のアプローチを採用しているようです。
 
-The auto-approval system appears to use a multi-stage approach:
+許可された操作と安全でない操作を定義する、事前定義済みルールに基づく基本分類器
 
-1. A base classifier with predefined rules for safe and unsafe operations
-2. User-configurable overrides that can extend or restrict the defaults
-3. A fast first pass, with extended reasoning as fallback for ambiguous cases
+デフォルト設定を拡張または制限できる、ユーザー設定可能なオーバーライド機能
 
-### Memory Hierarchy
+高速な初回パス（判定）を行い、判断が難しい場合には予備として詳細な推論を実行
+
+＃＃＃メモリ階層
 
 ```
-Loading Order (earliest = lowest priority):
+プロンプト構築パイプライン
     |
-    |-- Enterprise/managed configuration
-    |-- User global preferences
-    |-- Project-level instructions (shared)
-    |-- Project rules directory
-    |-- Local overrides (private, not committed)
+    |   キャッシュ可能なプレフィックス（セッションをまたいで不変）
+    |-- アイデンティティおよびセーフティに関する指示
+    |-- 権限およびフックの設定
+    |-- コードスタイルおよびエラーハンドリングのルール
+    |-- ツールの好みおよび使用パターン
+    |-- トーン、スタイル、および出力ルール
     |
-    |   Supports transitive file inclusion
-    |   Conditional injection via path-based filtering
+    |   キャッシュ境界
+    |
+    |   動的なサフィックス（セッションごとに変化）
+    |-- 利用可能なエージェントおよびスキル
+    |-- メモリファイルの内容
+    |-- 環境コンテキスト（OS、ディレクトリ、Gitの状態）
+    |-- 言語および出力の好み
+    |-- 有効なMCPサーバーの指示
+    |-- コンテキストウィンドウ管理のディレクティブ
 ```
 
-## Use Cases
+＃＃ユースケース
+本研究は、以下のような方々に役立ちます。
 
-This research is useful for:
+ー＊＊ AIエンジニア：自身のエージェント型コーディングツールを構築している方
 
-- **AI engineers** building their own agentic coding tools
-- **Prompt engineers** studying production-grade prompt architectures
-- **Security researchers** understanding how autonomous AI tools manage permissions
-- **Students and educators** learning about multi-agent system design
+ー＊＊ プロンプトエンジニア：プロダクションレベルのプロンプト・アーキテクチャを研究している方
 
-## Repository Structure
+ー＊＊ セキュリティ研究者：自律型AIツールがどのように権限を管理しているかを理解したい方
+
+ー＊＊ 学生および教育者：マルチエージェントシステムの設計について学んでいる方
+
+＃＃リポジトリの構成
 
 ```
 claude-code-system-prompts/
@@ -165,6 +265,6 @@ claude-code-system-prompts/
         01-30 documented patterns (see catalog above)
 ```
 
-## Disclaimer
+＃＃免責事項
 
-This is an independent research project. All content represents our analysis and approximations based on publicly observable behavior. This project is not affiliated with, endorsed by, or connected to Anthropic. All trademarks belong to their respective owners. If any content owner has concerns, please open an issue and we will address it promptly.
+本プロジェクトは独立した研究プロジェクトです。すべての内容は、公開されている動作の観察に基づく我々の分析と近似モデルを表しています。本プロジェクトは、Anthropic社と提携、承認、または関係するものではありません。すべての商標はそれぞれの所有者に帰属します。コンテンツの所有者の方で懸念事項がある場合は、Issueを作成していただければ迅速に対応いたします。
