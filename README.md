@@ -39,11 +39,11 @@
 シンプル・モード軽量な動作のための最小限のプロンプト・バリアント |
 
 | 03 | [Default Agent Prompt](prompts/03_default_agent_prompt.md) | 
-＜デフォルト・エージェント・プロンプト＞ 
+＜デフォルト・エージェント・プロンプト＞ (prompts/03_default_agent_prompt.md)
 デフォルト・エージェント・プロンプトすべてのサブエージェントが継承するベースとなる指示 |
 
 | 04 | [Cyber Risk Instruction](prompts/04_cyber_risk_instruction.md) | 
-＜サイバーリスク・インストラクション＞ 
+＜サイバーリスク・インストラクション＞ (prompts/04_cyber_risk_instruction.md)
 サイバーリスク・インストラクション許可された操作と禁止された操作を分けるセキュリティ境界 |
 
 ### Orchestration ・オーケストレーション（調整・連携）
@@ -51,11 +51,11 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 05 | [Coordinator System Prompt](prompts/05_coordinator_system_prompt.md) |
-＜コーディネーター・システムプロンプト＞ 
+＜コーディネーター・システムプロンプト＞ (prompts/05_coordinator_system_prompt.md)
 フェーズ分けされたワークフローによるマルチワーカーのオーケストレーション |
 
 | 06 | [Teammate Prompt Addendum](prompts/06_teammate_prompt_addendum.md) | 
-＜チームメイト・プロンプト補足資料＞
+＜チームメイト・プロンプト補足資料＞(prompts/06_teammate_prompt_addendum.md)
 マルチエージェントによる共同作業のための通信プロトコル |
 
 ### Specialized Agents ・特化型エージェント
@@ -63,19 +63,19 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 07 | [Verification Agent](prompts/07_verification_agent.md) |
-＜検証エージェント＞ 
+＜検証エージェント＞ (prompts/07_verification_agent.md)
 実装を検証するアドバーサリアル（敵対的）テスト・エージェント |
 
 | 08 | [Explore Agent](prompts/08_explore_agent.md) | 
-＜探索エージェント＞
+＜探索エージェント＞(prompts/08_explore_agent.md)
 「変更不可」の制約下で行う、読み取り専用のコードベース探索 |
 
 | 09 | [Agent Creation Architect](prompts/09_agent_creation_architect.md) |
-＜エージェント生成アーキテクト＞ 
+＜エージェント生成アーキテクト＞ (prompts/09_agent_creation_architect.md)
 要件から新しいエージェント構成を生成 |
 
 | 10 | [Status Line Setup Agent](prompts/10_statusline_setup_agent.md) | 
-＜ステータスライン設定エージェント＞
+＜ステータスライン設定エージェント＞(prompts/10_statusline_setup_agent.md)
 各種シェルにおけるターミナルのステータスライン設定 |
 
 
@@ -88,11 +88,11 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 11 | [Permission Explainer](prompts/11_permission_explainer.md) | 
-＜権限エクスプレイナー＞	
+＜権限エクスプレイナー＞	(prompts/11_permission_explainer.md)
 ツール実行の承認前に行われるリスク評価 |
 
 | 12 | [Auto Mode Classifier](prompts/12_yolo_auto_mode_classifier.md) | 
-＜オートモード・クラシファイア＞	
+＜オートモード・クラシファイア＞	(prompts/12_yolo_auto_mode_classifier.md)
 ツールの自律実行に向けた多段階セキュリティ分類 |
 
 ### Tool Descriptions ・ツール解説
@@ -100,7 +100,7 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 13 | [Tool-Specific Prompts](prompts/13_tool_prompts.md) | 
-＜ツール別プロンプト＞	
+＜ツール別プロンプト＞	(prompts/13_tool_prompts.md)
 個々のツール（Bash、Edit、Agentなど）が自身の機能を定義する方法 |
 
 ### Utility Patterns ・ユーティリティ・パターン
@@ -108,31 +108,31 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 14 | [Tool Use Summary](prompts/14_tool_use_summary.md) | 
-＜ツール使用サマリー＞	
+＜ツール使用サマリー＞	(prompts/14_tool_use_summary.md)
 完了した一連のツール実行に対する簡潔なラベルの生成 |
 
 | 15 | [Session Search](prompts/15_session_search.md) | 
-＜セッション検索＞	
+＜セッション検索＞	(prompts/15_session_search.md)
 過去の対話セッションを対象としたセマンティック検索 |
 
 | 16 | [Memory Selection](prompts/16_memory_selection.md) | 
-＜メモリ選択＞	
+＜メモリ選択＞	(prompts/16_memory_selection.md)
 クエリのコンテキストに適したメモリファイルの選択 |
 
 | 17 | [Auto Mode Critique](prompts/17_auto_mode_critique.md) | 
-＜オートモード・クリティーク＞	
+＜オートモード・クリティーク＞	(prompts/17_auto_mode_critique.md)
 ユーザーが作成した分類ルールのレビュー |
 
 | 20 | [Session Title](prompts/20_session_title.md) | 
-＜セッション・タイトル＞	
+＜セッション・タイトル＞	(prompts/20_session_title.md)
 セッション管理用の軽量なタイトル生成 |
 
 | 29 | [Agent Summary](prompts/29_agent_summary.md) | 
-＜エージェント・サマリー＞	
+＜エージェント・サマリー＞	(prompts/29_agent_summary.md)
 サブエージェントのバックグラウンドでの進捗更新 |
 
 | 30 | [Prompt Suggestion](prompts/30_prompt_suggestion.md) | 
-＜プロンプト・サジェスチョン＞	
+＜プロンプト・サジェスチョン＞	(prompts/30_prompt_suggestion.md)
 ユーザーが次に入力する可能性の高いコマンドの予測 |
 
 ### Context Window Management ・コンテキストウィンドウ管理
@@ -140,11 +140,11 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 21 | [Compact Service](prompts/21_compact_service.md) | 
-＜コンパクト・サービス＞
+＜コンパクト・サービス＞(prompts/21_compact_service.md)
 長いセッションにおける会話の要約ストラテジー |
 
 | 22 | [Away Summary](prompts/22_away_summary.md) | 
-＜アウェイ・サマリー＞
+＜アウェイ・サマリー＞(prompts/22_away_summary.md)
 再開したユーザーのための短いセッション回顧 |
 
 ### Dynamic Behaviors ・動的ビヘイビア
@@ -152,15 +152,15 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 18 | [Proactive Mode](prompts/18_proactive_mode.md) | 
-＜プロアクティブ・モード＞
+＜プロアクティブ・モード＞(prompts/18_proactive_mode.md)
 ペース制御を備えた自律的なバックグラウンド動作 |
 
 | 23 | [Chrome Browser Automation](prompts/23_chrome_browser_automation.md) | 
-＜Chromeブラウザ自動化＞
+＜Chromeブラウザ自動化＞(prompts/23_chrome_browser_automation.md)
 ブラウザ拡張機能の統合パターン |
 
 | 24 | [Memory Instruction](prompts/24_memory_instruction.md) | 
-＜メモリ・インストラクション＞
+＜メモリ・インストラクション＞(prompts/24_memory_instruction.md)
 階層的なメモリ読み込みとオーバーライドのセマンティクス |
 
 ### Skill Patterns ・スキル・パターン
@@ -168,23 +168,23 @@
 | # | Pattern | Description |
 |---|---------|-------------|
 | 19 | [Simplify Skill](prompts/19_simplify_skill.md) | 
-＜シンプリファイ・スキル＞
+＜シンプリファイ・スキル＞(prompts/19_simplify_skill.md)
 マルチエージェントによる並列コードレビュー・パターン |
 
 | 25 | [Skillify Skill](prompts/25_skillify.md) | 
-＜スキリファイ・スキル＞
+＜スキリファイ・スキル＞(prompts/25_skillify.md) 
 インタビュー形式によるスキル作成ワークフロー |
 
 | 26 | [Stuck Skill](prompts/26_stuck_skill.md) | 
-＜スタック・スキル＞
+＜スタック・スキル＞(prompts/26_stuck_skill.md)
 セッションの診断とリカバリ（復旧）パターン |
 
 | 27 | [Remember Skill](prompts/27_remember_skill.md) | 
-＜リメンバー・スキル＞
+＜リメンバー・スキル＞(prompts/27_remember_skill.md)
 メモリの整理とプロモーション（昇格）ワークフロー |
 
 | 28 | [Update Config Skill](prompts/28_update_config_skill.md) | 
-＜設定更新スキル＞
+＜設定更新スキル＞(prompts/28_update_config_skill.md)
 コンフィギュレーション管理のパターン |
 
 ＃＃アーキテクチャに関する考察
